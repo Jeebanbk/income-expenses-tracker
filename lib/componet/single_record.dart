@@ -26,7 +26,7 @@ class SingleRecord extends StatelessWidget {
           ),
         ),
         subtitle: Text(
-          transaction.descrition,
+          transaction.description,
           style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
         ),
         trailing: Text(

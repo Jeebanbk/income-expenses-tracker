@@ -13,7 +13,7 @@ class AddTransaction extends StatefulWidget {
       {super.key,
       this.title = '',
       this.description = "",
-      this.amount =0,
+      this.amount = 0,
       this.type = ""});
 
   @override
@@ -68,6 +68,11 @@ class _AddTransactionState extends State<AddTransaction> {
                 children: [
                   TextFormField(
                       controller: titleController,
+                      validator: (value) {
+                        if (value == null || value.isNotEmpty) {
+                          return "Please Enter Title";
+                        }
+                      },
                       decoration: InputDecoration(
                           labelText: "Enter title",
                           enabledBorder: OutlineInputBorder(
@@ -78,6 +83,11 @@ class _AddTransactionState extends State<AddTransaction> {
                   ),
                   TextFormField(
                     controller: descriptionController,
+                    validator: (value) {
+                      if (value == null || value.isNotEmpty) {
+                        return "Please enter Description";
+                      }
+                    },
                     decoration: InputDecoration(
                         labelText: "Enter Description",
                         enabledBorder: OutlineInputBorder(
@@ -91,10 +101,32 @@ class _AddTransactionState extends State<AddTransaction> {
                   TextFormField(
                     keyboardType: TextInputType.number,
                     controller: amountController,
+                    validator: (value) {
+                      if (value == null || value.isNotEmpty) {
+                        return "Please Enter Amount";
+                      }
+                    },
                     decoration: InputDecoration(
                         labelText: "Enter Amount",
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12)),
+                        filled: true),
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  TextFormField(
+                    controller: typecontroller,
+                    validator: (value) {
+                      if (value == null || value.isNotEmpty) {
+                        return "Please Select  income or expenses";
+                      }
+                    },
+                    decoration: InputDecoration(
+                        labelText: "Select Income or Expenses",
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
                         filled: true),
                   ),
                   const SizedBox(

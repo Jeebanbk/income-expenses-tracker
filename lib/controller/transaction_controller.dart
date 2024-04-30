@@ -16,6 +16,8 @@ class TransactionController extends GetxController {
 
   void add(Transaction transaction) {
     transactions.add(transaction);
+    calculateTotalExpenes();
+    calculateTotalIncome();
   }
 
   void calculateTotalIncome() {
